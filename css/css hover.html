@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>css hover</title>
+        <style>
+            #mainul li ul li{display:none;}
+			#mainul li:hover ul li{display:block;}
+			#mainul li:hover ul li ul li{display:none;}
+			#mainul li ul li:hover ul li{display:block;}
+			#mainul li ul li:hover ul li ul li{display:none;}
+			#mainul li ul li ul li:hover ul li{display:block;}
+        </style>
+
+    </head>
+</html>
+<body>
+    <ul id = "mainul">
+    <li>Google
+        <ul>
+            <li>Gmail</li>
+            <ul>
+                <li>Sign up</li>
+                <li>Sign in
+                    <ul>
+                        <li>Sign in as admin</li>
+                        <li>Sign in as member</li>
+                    </ul>
+                </li>
+            </ul>
+        </ul>
+        <li>Facebook</li>
+        <li>Microsoft</li>
+        <li>MSN</li>
+        <li>Amazon</li>
+    </ul>
+</body>
+</html>
