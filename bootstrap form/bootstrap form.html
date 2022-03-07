@@ -17,6 +17,22 @@
 			var $AgeRegEx = /^([0-9]{1,2})$/;
 			var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/; 
 			$(document).ready(function(){
+
+				$("#calendar").blur(function(){
+
+$("#DOBValidation").empty();
+
+if($(this).val()=="" || $(this).val()==null)
+
+{
+
+	$("#DOBValidation").html("(*) DOB id required..!!");
+
+	TxtEmailIdFlag=false;
+
+}
+
+});
 		$('#calendar').datepicker({
 		changeMonth:true, 
 		changeYear:true, 
@@ -225,8 +241,9 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							<input id="calendar" type="text" placeholder="Enter DOB here.."class="form-control" />
+							<small id="DOBValidation" class="text-danger"></small>
 						</div>
-						<!-- <small id="txtDate" class="text-danger"></small> -->
+					
 					</div>
  
 					<div class="form-group">
