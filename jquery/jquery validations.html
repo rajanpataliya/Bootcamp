@@ -142,16 +142,16 @@ $(document).ready(function() {
 							$("#ContactNoValidation").html("(*) Invalid contact no..!!");
 						}
 						else{
-							ContactNoflag=true; 
+							ContactNoflag=true;    
 						} 
 					}  
-					Msgflag=false;
-					$("#MsgValidation").empty();
-					if($("#Msg").val()=="") 
+					Msgflag=false;   
+					$("#MsgValidation").empty();   
+					if($("#Msg").val()=="")  
 					{
 						$("#MsgValidation").html("(*) Contact message required..!!");
 					}
-					else{
+					else{     
 						if($("#Msg").val().length>3000) 
 						{
 							$("#MsgValidation").html("(*) Invalid contact message..!!");

@@ -12,64 +12,48 @@
 		<link href="bootstrap/bootstrap.css" type="text/css" rel="stylesheet" />
 		<!--CDN LINK OF JQUERY PARENT PLUG IN - COMPULSORY TO BE HERE. -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> 
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 		<script type="text/javascript">
 			var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
 			var $AgeRegEx = /^([0-9]{1,2})$/;
 			var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/; 
-			$(document).ready(function(){
+			var TxtNameFlag=false,TxtContactNoFlag=false,TxtContactMsgFlag=false;
 
-				$("#calendar").blur(function(){
+			$(document).ready(function() {
 
-$("#DOBValidation").empty();
+				//DOB validation 
+			$('#calendar').datepicker({
+		 changeMonth:true, 
+		 changeYear:true,
+		   
+		 maxDate:"-18y" 
+		 	});
 
-if($(this).val()=="" || $(this).val()==null)
-
-{
-
-	$("#DOBValidation").html("(*) DOB id required..!!");
-
-	TxtEmailIdFlag=false;
-
-}
-
-});
-		$('#calendar').datepicker({
-		changeMonth:true, 
-		changeYear:true, 
-		yearRange:"1960:2022",
-		maxDate:"-18y" 
-			});
-		});
-
-
-		var TxtNameFlag=false,TxtContactNoFlag=false,TxtContactMsgFlag=false;
-
-
-	
-			$(document).ready(function(){
-
-				
-				//First name Validation
+			 //first name validation 
 				$("#TxtFirstName").blur(function(){
 				
-					$("#TxtFirstNameValidation").empty();
-					if($(this).val()=="") 
+				$("#TxtFirstNameValidation").empty();
+				if($(this).val()=="") 
+				{
+					$("#TxtFirstNameValidation").html("(*) First name required..!!");
+				}
+				else{
+					if(!$(this).val().match($FNameLNameRegEx)) 
 					{
-						$("#TxtFirstNameValidation").html("(*) First name required..!!");
-					}
-					else{
-						if(!$(this).val().match($FNameLNameRegEx)) 
-						{
-							$("#TxtFirstNameValidation").html("(*) Invalid first name..!!");
-						} 
-						else{ 
-							TxtFirstNameFlag=true;
-						}  
+						$("#TxtFirstNameValidation").html("(*) Invalid first name..!!");
+					} 
+					else{ 
+						TxtFirstNameFlag=true;
 					}  
-				});  
+				}  
+			});
 
+			
+		 
 				//Last name Validation
-				$("#TxtLastName").blur(function(){
+			 $("#TxtLastName").blur(function(){
 				
 				$("#TxtLastNameValidation").empty();
 				if($(this).val()=="") 
@@ -104,12 +88,9 @@ if($(this).val()=="" || $(this).val()==null)
 							TxtContactNoFlag=true;
 						}
 					}
-				});
-
-				//DOB Validation
 				
-
-				
+			});
+			
 				//Email id Validation
 				$("#TxtEmailId").blur(function(){  
 					TxtEmailIdFlag=false;
@@ -146,6 +127,7 @@ if($(this).val()=="" || $(this).val()==null)
 							TxtPasswordFlag=true;  
 						}
 					}
+				
 				});
 
 				//DOB Validation
@@ -168,12 +150,9 @@ if($(this).val()=="" || $(this).val()==null)
 						}
 					}
 				}); 
-			});   
-
-			
-
-
-			</script>
+			});
+		
+			 </script>
 		
 		<style type="text/css">
 			#Forms{box-shadow:10px 10px 30px gray;margin-top:30px;margin-bottom:30px;}
@@ -241,10 +220,11 @@ if($(this).val()=="" || $(this).val()==null)
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							<input id="calendar" type="text" placeholder="Enter DOB here.."class="form-control" />
-							<small id="DOBValidation" class="text-danger"></small> 
+						
 						</div>
+						<small id="DOBValidation" class="text-danger"></small>  
 					
-					</div>
+					</div> 
  
 					<div class="form-group">
 						<b>Age</b>
