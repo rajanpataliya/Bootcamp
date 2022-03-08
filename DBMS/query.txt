@@ -1,0 +1,78 @@
+Create Table:
+
+1) Create table tablename(
+	Student_id int,
+	Student_Fname varchar(100),
+	Student_Lname varchar(100),
+	Student_Emailid varchar(50),
+	Student_Contactno varchar(100),
+	Student_Gender char(10));
+
+Insert Value :
+
+1) INSERT INTO `student`(`Student_id`, `Student_Fname`, `Student_Lname`, `Student_Emailid`, `Student_Contactno`, `Student_Gender`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+
+Delete :
+
+1) Delete * from student where student id=1;
+
+Update :
+
+1) Update student set name="Rohan" where id=2;
+
+Between :
+
+1) SELECT * FROM subject where Subject_id BETWEEN 10 and 30;
+
+In & Not in
+
+1) SELECT * FROM student where Student_id in (2,4);
+2) SELECT * FROM student where Student_id not in (2,4);
+
+Like :
+
+1) SELECT * from student where Student_Fname like 'r%';
+2) SELECT * from student where Student_Fname like '%l';
+3) SELECT Student_Fname from student where Student_Fname like '_a%';
+4) SELECT Student_Fname from student where Student_Fname like '%a%'; 
+
+Cross join: 
+
+1) select *from student cross join subject;
+2) select Student_Contactno,Subject_name from student cross join subject;
+3) select s1.Student_id,s1.Student_Fname from student s1 cross join subject;
+
+inner join:
+
+1) select * from student inner join subject where Student_id = Subject_id; 
+
+Natural join: 
+1) select * from student natural join subject; 
+
+left outer join:
+
+1) select * from student s1 left outer join subject ON s1.Student_id=Subject_id;
+2) select * from student left outer join subject ON Student_Fname=Subject_id; 
+3) select * from student s1 left outer join subject s2 ON s1.Student_id=s2.Student_id;  
+
+Right Outer join:
+
+1) select * from student s1 right outer join subject ON s1.Student_id=Subject_id; 
+2) select * from student right outer join subject ON Student_Fname=Subject_name;  
+
+Group by:
+1) select Student_Fname,Student_Lname from student Group by Student_Gender;  
+2) select * from student group by Student_Gender;
+3) select * from student group by Student_fname;
+4) select * from student group by Student_Lname;
+5) select Student_id,Student_Fname from student group by Student_Lname;
+6) select Student_id,Student_Lname from student group by Student_Lname;
+
+
+Distint:
+1) select DISTINCT Student_Gender from student;  
+2) select DISTINCT Student_Gender from student;  
+
+Having:
+1) select * from subject Group by Subject_name having (Subject_id < 4); 
+2) select * from student Group by Student_Fname having (Student_Lname="Savaliya"); 
